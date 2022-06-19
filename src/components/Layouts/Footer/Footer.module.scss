@@ -1,15 +1,99 @@
 .wrapper {
-  height: 305px;
+  height: 186px;
 }
 
-.sponsors {
-  height: 263px;
-  background-color: #fff;
-  padding: 33px 0 30px;
-}
-
+// Socials
 .socials {
   height: 142px;
   background-color: #2a2a2a;
   padding: 50px 0 38px;
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-list {
+  display: flex;
+  gap: 16px;
+  list-style-type: none;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-item {
+  display: flex;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #3f3f3f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: var(--primary-color);
+  }
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 2rem;
+}
+
+// .social-buttons {
+//   display: flex;
+//   gap: 8px;
+//   justify-content: center;
+// }
+
+// .black-btn,
+// .red-btn {
+//   display: inline-block;
+//   white-space: nowrap;
+//   height: 50px;
+//   margin: 0 auto;
+//   border-radius: 100px;
+//   cursor: pointer;
+// }
+
+// .black-btn {
+//   background: none;
+//   border: 1px solid rgba(255,255,255,.15);
+
+//   &:hover {
+//     background-color: rgba(255,255,255,.15);
+//   }
+// }
+
+// .red-btn {
+//   background-color: var(--primary-color);
+
+//   &:hover {
+//     background-color: #9f0000;
+//   }
+// }
+
+// .btn-link {
+//   color: #fff;
+//   text-decoration: none;
+//   font-size: 1.4rem;
+//   font-weight: 500;
+//   text-transform: uppercase;
+//   padding: 13px 32px;
+//   height: 100%;
+// }
+
+.infomations {
+  height: 44px;
+  background-color: #1a1a1a;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
 }
