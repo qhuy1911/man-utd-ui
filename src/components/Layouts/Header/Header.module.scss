@@ -1,0 +1,11 @@
+.wrapper {
+  height: var(--header-height);
+  background-color: var(--primary-color);
+  box-shadow: 0 1px 4px 0rgba(0,0,0,.4);
+  color: #fff;
+  padding: 0 20px;
+}
+
+.inner {
+  height:100%;
+}
