@@ -1,5 +1,11 @@
+import Card from "../../components/Cards/Card";
+
 function Home() {
-  return <h1>Home page</h1>;
+  return (
+    <div>
+      <Card />
+    </div>
+  );
 }
 
 export default Home;
