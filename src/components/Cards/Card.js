@@ -9,11 +9,11 @@ function Card() {
       <div className="cards__wrapper">
         <ul className="cards__items">
           <CardItemNew
-            src={require("../../assets/images/img-1.jpg")}
+            src={require("../../assets/images/img-2.jpg")}
             alt="news"
-            title="Explore the hidden waterfall deep inside the Amazon Jungle"
+            title="Opinion: Erik can revitalise returning loan players"
             description="Erik ten Hag's arrival spells opportunity for Martial, Tuanzebe, van de Beek and Williams."
-            path="/"
+            path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
           />
           <CardItemNew
             src={require("../../assets/images/img-1.jpg")}

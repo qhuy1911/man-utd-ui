@@ -61,9 +61,7 @@
   .fade-img {
     animation-name: fade-img;
     animation-duration: 2s;
-  }
-
-  
+  }  
   .cards__item__img {
     position: absolute;
     top: 0;
