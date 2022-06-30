@@ -24,7 +24,8 @@
 .shop__show__category__sidebar{
     width: 300px;
     margin: 30px 20px 30px;
-    box-shadow: 0 1px 0 rgb(0 0 0 / 12%);
+    border-bottom: 1px solid;
+    border-color: rgb(0 0 0 / 12%);
 }
 .shop__show__category__sidebar p{
     margin-left: 10px;
@@ -57,7 +58,7 @@
     list-style: none;
     display: flex;
 }
-.select{
+select{
     padding: 7px;   
 }
 .div__page ul li{

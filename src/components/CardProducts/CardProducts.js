@@ -10,7 +10,7 @@ function CardProducts() {
         alt="news"
         price="2500"
         description="Manchester United Home Shirt 2021-22"
-        path={"/"}
+        path={"/shop/product-detail/1"}
       />
       <CardItemProducts
         src={require("../../assets/images/ao-man-1.jpg")}
