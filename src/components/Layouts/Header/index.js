@@ -21,7 +21,9 @@ function Header() {
           </Link>
           <ul className={cx("menu-list")}>
             <li className={cx("menu-item")}>Home</li>
-            <li className={cx("menu-item")}>Shop</li>
+            <Link to={"/shop"} className="navLink">
+              <li className={cx("menu-item")}>Shop</li>
+            </Link>
             <li className={cx("menu-item")}>About</li>
             <li className={cx("menu-item")}>PLayers</li>
             <li className={cx("menu-item")}>Achievements</li>
