@@ -12,7 +12,7 @@ function Shop() {
         <span>MANCHESTER UNITED</span>
       </div>
       <div className="shop__show__wrapper">
-        <div className="shop__show__category__sidebar">
+        <div className="shop__show__category__sidebar ">
           <p>Shop for</p>
           <ul>
             <li>
