@@ -29,8 +29,7 @@
   }
   .cards__item {
     display: flex;
-    flex: 1;
-    margin: 0 1rem;
+    margin: 1rem 1rem;
     border-radius: 10px;
   }
   
@@ -103,7 +102,8 @@
   
   @media only screen and (min-width: 1024px) {
     .cards__items {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3,400px);
     }
   }
   

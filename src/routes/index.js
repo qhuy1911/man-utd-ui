@@ -5,7 +5,7 @@ import Shop from "../pages/Shop";
 
 const publicRoutes = [
   { path: "/", component: Home },
-  { path: "/news-detail/:name", component: NewDetail },
+  { path: "/news-detail/:id", component: NewDetail },
   { path: "/shop", component: Shop, layout: null },
   { path: "/shop/product-detail/:id", component: ProductDetail, layout: null },
 ];
