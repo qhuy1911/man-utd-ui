@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ArticlesDataService from "../../service/ArticlesDataService";
+import ArticlesDataService from "../../services/ArticlesDataService";
 
 function NewDetail() {
   let { id } = useParams();
