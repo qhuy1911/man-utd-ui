@@ -5,7 +5,7 @@ import "./Card.css";
 function CardItemNew(props) {
   return (
     <>
-      <li className="cards__item">
+      <li className="cards__item" key={props.key}>
         <Link className="cards__item__link item_new" to={props.path}>
           <figure className="cards__item__pic-wrap">
             <img

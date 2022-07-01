@@ -1,57 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ArticlesDataService from "../../service/ArticlesDataService";
 import "./Card.css";
 import CardItem from "./CardItem";
-import CardItemNew from "./CardItemNew";
 
 function Card() {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    getAllArcles();
+  }, []);
+
+  const getAllArcles = () => {
+    ArticlesDataService.getAllArcles().then((res) => setArticles(res.data));
+  };
+
   return (
     <div className="cards__container">
       <div className="cards__wrapper">
         <ul className="cards__items">
-          <CardItemNew
-            src={require("../../assets/images/img-2.jpg")}
-            alt="news"
-            title="Opinion: Erik can revitalise returning loan players"
-            description="Erik ten Hag's arrival spells opportunity for Martial, Tuanzebe, van de Beek and Williams."
-            path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
-          />
-          <CardItemNew
-            src={require("../../assets/images/img-1.jpg")}
-            alt="news"
-            title="Explore the hidden waterfall deep inside the Amazon Jungle"
-            description="Erik ten Hag's arrival spells opportunity for Martial, Tuanzebe, van de Beek and Williams."
-            path="/"
-          />
-        </ul>
-        <ul className="cards__items">
-          <CardItem
-            src={require("../../assets/images/img-1.jpg")}
-            alt="news"
-            title="Explore the hidden waterfall deep inside the Amazon Jungle"
-            description="Erik ten Hag's arrival spells opportunity for Martial, Tuanzebe, van de Beek and Williams."
-            path="/"
-          />
-          <CardItem
-            src={require("../../assets/images/img-1.jpg")}
-            alt="news"
-            title="Explore the hidden waterfall deep inside the Amazon Jungle"
-            description="Erik ten Hag's arrival spells opportunity for Martial, Tuanzebe, van de Beek and Williams."
-            path="/"
-          />
-          <CardItem
-            src={require("../../assets/images/img-1.jpg")}
-            alt="news"
-            title="Explore the hidden waterfall deep inside the Amazon Jungle"
-            description="Erik ten Hag's arrival spells opportunity for Martial, Tuanzebe, van de Beek and Williams."
-            path="/"
-          />
-          <CardItem
-            src={require("../../assets/images/img-1.jpg")}
-            alt="news"
-            title="Explore the hidden waterfall deep inside the Amazon Jungle"
-            description="Erik ten Hag's arrival spells opportunity for Martial, Tuanzebe, van de Beek and Williams."
-            path="/"
-          />
+          {articles.map((article) => {
+            return (
+              <CardItem
+                key={article.id}
+                src={require(`../../assets/images/${article.image}`)}
+                alt="news"
+                title={article.title}
+                description={article.description}
+                path={`/news-detail/${article.id}`}
+              />
+            );
+          })}
         </ul>
       </div>
     </div>
