@@ -1,51 +1,26 @@
 import React from "react";
 import CardItemProducts from "./CardItemProducts";
-import "./CardProducts.css";
+import classNames from "classnames/bind";
+import styles from "./CardProducts.module.scss";
+
+const cx = classNames.bind(styles);
 
 function CardProducts() {
   return (
-    <div className="cards__product__container">
+    <div className={cx("cards__product__container")}>
       <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
+        src={require("../../assets/images/product/ao-man-1.jpg")}
         alt="news"
         price="2500"
         description="Manchester United Home Shirt 2021-22"
         path={"/shop/product-detail/1"}
       />
       <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
+        src={require("../../assets/images/product/ao-man-1.jpg")}
         alt="news"
         price="2500"
         description="Manchester United Home Shirt 2021-22"
-        path={"/"}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
+        path={"/shop/product-detail/1"}
       />
     </div>
   );

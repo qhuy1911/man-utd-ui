@@ -1,7 +1,7 @@
 use manutd;
 
-insert into users values (1,"NewYork","ell123@gmail.com","Elliot Whitelaw", "123","08273746","elliot12")
-insert into users values (2,"TP HCM","nhu123@gmail.com","Nhu Vo", "123","08273746","nhuvo")
+insert into users values (1,"NewYork","ell123@gmail.com","Elliot Whitelaw", "123","08273746","elliot12");
+insert into users values (2,"TP HCM","nhu123@gmail.com","Nhu Vo", "123","08273746","nhuvo");
 
 insert into articles 
 value (1,
@@ -13,8 +13,8 @@ The outdoor session on Thursday was intense and enjoyable for all involved, mixi
 See who is pictured in the latest training session via the gallery below…"
 ,"2022-07-01",
 "Erik is assessing each and every player with an open mind, as he gets to know the group at Carrington.",
-"img-4",
-"Ten Hag continues to work his United squad","2022-07-01",1)
+"img-4.jpg",
+"Ten Hag continues to work his United squad","2022-07-01",1);
 
 insert into articles 
 value (2,
@@ -26,7 +26,7 @@ How does it feel to play at Old Trafford?
 How was the game?“An unbelievable occasion for a man like myself, especially as a United fan. In terms of football, it wasn’t my best performance, but I scored at Old Trafford so I can’t argue with that. No complaints.”"
 ,"2022-07-01",
 "Erik is assessing each and every player with an open mind, as he gets to know the group at Carrington.",
-"img-4.jpg",
+"img-1.jpg",
 "MY UNITED: AVELINO","2022-07-01",2);
 
 insert into articles 
@@ -45,4 +45,4 @@ A determined, injury-free Martial can be a huge boost to United, despite the dif
 ,"2022-07-01",
 "Erik ten Hag's arrival spells opportunity for Martial, Tuanzebe, van de Beek and Williams.",
 "img-2.jpg",
-"Opinion: Erik can revitalise returning loan players","2022-07-01",1)
+"Opinion: Erik can revitalise returning loan players","2022-07-01",1);
