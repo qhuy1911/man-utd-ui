@@ -15,7 +15,7 @@ function CardItemProducts(props) {
           </figure>
           <div className={cx("cards__item__product__info")}>
             <h5>Reduced: {props.price} $</h5>
-            <span>{props.description}</span>
+            <span>{props.name}</span>
           </div>
         </Link>
       </li>
