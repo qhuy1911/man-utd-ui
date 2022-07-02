@@ -1,57 +1,68 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Shop.css";
 import CardProducts from "../../components/CardProducts/CardProducts";
+import CategoryDataService from "../../services/CategoryDataService";
+import classNames from "classnames/bind";
+import styles from "./Shop.module.scss";
+
+const cx = classNames.bind(styles);
+
 function Shop() {
+  const [categories, setCategories] = useState();
+
+  useEffect(() => {
+    getAllCategories();
+  }, []);
+
+  const getAllCategories = () => {
+    CategoryDataService.getAllCategories().then((res) =>
+      setCategories(res.data)
+    );
+  };
+
   return (
-    <div className="shop__home__container">
-      <div className="shop__name__link">
+    <>
+      <div className={cx("shop__name__link")}>
         <span>MANCHESTER UNITED</span>
       </div>
-      <div className="shop__show__wrapper">
-        <div className="shop__show__category__sidebar ">
+      <div className={cx("shop__show__wrapper")}>
+        <div className={cx("shop__show__category__sidebar")}>
           <p>Shop for</p>
           <ul>
-            <li>
-              <span>Men</span>
-            </li>
-            <li>
-              <span>Women</span>
-            </li>
-            <li>
-              <span>Kids</span>
-            </li>
-            <li>
-              <span>Baby</span>
-            </li>
+            {categories
+              ? categories.map((categorie) => (
+                  <li key={categorie.id}>
+                    <span>{categorie.name}</span>
+                  </li>
+                ))
+              : ""}
           </ul>
         </div>
-        <div className="shop__show__container">
-          <div className=" shop__name__link shop__show__count">
-            <div>
+        <div className={cx("shop__show__container")}>
+          <div className={cx("shop__show__count")}>
+            <div className={cx("shop__show__count_wrap")}>
               <span>1 - 72 of 1415</span>
-              <select className="select">
+              <select className={cx("select")}>
                 <option>Top Sellers</option>
                 <option>Lowest Price</option>
               </select>
             </div>
-            <div className="div__page">
+            <div className={cx("div__page")}>
               <ul>
                 <li>
-                  <FontAwesomeIcon icon={faCaretLeft} className="icon__cross" />
+                  <FontAwesomeIcon
+                    icon={faCaretLeft}
+                    className={cx("icon__cross")}
+                  />
                 </li>
-                <li className="active">
-                  <a className="navLink a" href="#">
-                    1
-                  </a>
+                <li className={cx("active")}>
+                  <a href="#">1</a>
                 </li>
                 <li>
-                  <a className="navLink a" href="#">
-                    2
-                  </a>
+                  <a href="#">2</a>
                 </li>
                 <li>
                   <a className="navLink a" href="#">
@@ -77,12 +88,10 @@ function Shop() {
               </ul>
             </div>
           </div>
-          <div className="shop__show__product">
-            <CardProducts />
-          </div>
+          <CardProducts />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

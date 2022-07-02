@@ -1,18 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./CardProducts.css";
+import classNames from "classnames/bind";
+import styles from "./CardProducts.module.scss";
+
+const cx = classNames.bind(styles);
 
 function CardItemProducts(props) {
   return (
     <div>
-      <li className="li_cards">
-        <Link className="navLink items__product" to={props.path}>
+      <li className={cx("li_cards")}>
+        <Link className={cx("items__product")} to={props.path}>
           <figure>
             <img src={props.src} alt={props.alt}></img>
           </figure>
-          <div className="cards__item__product__info">
+          <div className={cx("cards__item__product__info")}>
             <h5>Reduced: {props.price} $</h5>
-            <span className="">{props.description}</span>
+            <span>{props.description}</span>
           </div>
         </Link>
       </li>

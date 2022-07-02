@@ -1,39 +1,45 @@
-import { useState } from "react";
-import "./ProductDetail.css";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
+// import { useState } from "react";
+import classNames from "classnames/bind";
+import styles from "./ProductDetail.module.scss";
+
+const cx = classNames.bind(styles);
 
 function ProductDetail() {
   const sizes = ["XL", "XXL", "3XL", "4XL"];
   const counts = [];
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
   for (let index = 1; index < 10; index++) {
     counts.push(index);
   }
 
-  const handleShowChart = () => setShow(true);
-  const handleClose = () => setShow(false);
+  // const handleShowChart = () => setShow(true);
+  // const handleClose = () => setShow(false);
   return (
-    <div className="product__detail__container">
-      <div className="shop__name__link">
+    <div className={cx("product__detail__container")}>
+      <div className={cx("shop__name__link")}>
         <span>MANCHESTER UNITED</span>
       </div>
-      <div className="div__wrapp">
-        <img src={require("../../assets/images/ao-man-1.jpg")} alt=""></img>
-        <div className="product__detail__infor__warrper">
-          <span className="product__detail__title">
+      <div className={cx("div__wrapp")}>
+        <img
+          src={require("../../assets/images/product/ao-man-1.jpg")}
+          alt=""
+        ></img>
+        <div className={cx("product__detail__infor__warrper")}>
+          <span className={cx("product__detail__title")}>
             Manchester United Home Shirt 2021-22
           </span>
-          <span className="product__detail__avai">
+          <span className={cx("product__detail__avai")}>
             Personalisation available
           </span>
-          <span className="product__price">Reduced: 25000 $</span>
-          <div className="product__detail__product__size-wrap">
-            <div className="product__size">
+          <span className={cx("product__price")}>Reduced: 25000 $</span>
+          <div className={cx("product__detail__product__size-wrap")}>
+            <div className={cx("product__size")}>
               <span>Size</span>
-              <span className="div__chart" onClick={handleShowChart}>
-                SIZE CHART
-              </span>
+              <span className={cx("div__chart")}>SIZE CHART</span>
             </div>
-            <div className="product__detail__cate__size">
+            <div className={cx("product__detail__cate__size")}>
               <ul>
                 {sizes.map((size, index) => (
                   <li key={size}>
@@ -42,8 +48,8 @@ function ProductDetail() {
                 ))}
               </ul>
             </div>
-            <div className="product__detail__select__container">
-              <div className="div__col div__contain__quanlity">
+            <div className={cx("product__detail__select__container")}>
+              <div className={cx("div__contain__quanlity")}>
                 <span>Quantity</span>
                 <select>
                   {counts.map((count, index) => (
@@ -53,13 +59,13 @@ function ProductDetail() {
                   ))}
                 </select>
               </div>
-              <div className="div__col btn__action__container">
-                <button className="btn__action btn__cus">Customise</button>
-                <button className="btn__action btn__add">Add to card</button>
+              <div className={cx("btn__action__container")}>
+                <button className={cx("btn__action__cus")}>Customise</button>
+                <button className={cx("btn__action__add")}>Add to card</button>
               </div>
             </div>
           </div>
-          <div className="show__info">
+          <div className={cx("show__info")}>
             <h3>Shipping</h3>
             <ul>
               <li>
@@ -70,7 +76,7 @@ function ProductDetail() {
               </li>
             </ul>
           </div>
-          <div className="show__info">
+          <div className={cx("show__info")}>
             <h3>Detail</h3>
             <ul>
               <li>
@@ -78,7 +84,7 @@ function ProductDetail() {
               </li>
             </ul>
           </div>
-          <div className="show__info">
+          <div className={cx("show__info")}>
             <h3>Description</h3>
             <ul>
               <li>
@@ -88,12 +94,12 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      <div className={`div__show__size__chart ${show ? "" : "display"}`}>
+      {/* <div className={`div__show__size__chart ${show ? "" : "display"}`}>
         <img src={require("../../assets/images/size-chart.PNG")} alt=""></img>
-        <button className="btn__action close" onClick={handleClose}>
+        <button className={cx("close")} onClick={handleClose}>
           close
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
