@@ -8,6 +8,7 @@ import AdminHome from "../pages/Admin/AdminHome";
 
 import AdminLayout from "../components/Layouts/AdminLayout";
 import PlayerDetail from "../pages/User/PlayerDetail";
+import PlayerList from "../pages/User/PlayerList";
 
 const publicRoutes = [
   { path: "/", component: Home },
@@ -16,6 +17,8 @@ const publicRoutes = [
   { path: "/shop/product-detail/:id", component: ProductDetail, layout: null },
 
   //players
+
+  { path: "/players", component: PlayerList },
   { path: "/players/:id/detail", component: PlayerDetail },
 
   // auth
