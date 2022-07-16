@@ -1,22 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Card.css";
+import styles from "./Card.module.scss";
+import classNames from "classnames/bind";
 
+const cx = classNames.bind(styles);
 function CardItem(props) {
   return (
     <>
-      <li className="cards__item">
-        <Link className="cards__item__link" to={props.path}>
-          <figure className="cards__item__pic-wrap">
+      <li className={cx("cards__item")}>
+        <Link className={cx("cards__item__link")} to={props.path}>
+          <figure className={cx("cards__item__pic-wrap")}>
             <img
               src={props.src}
               alt={props.alt}
-              className="cards__item__img"
+              className={cx("cards__item__img")}
             ></img>
           </figure>
-          <div className="cards__item__info">
-            <h5 className="cards__item__text">{props.title}</h5>
-            <span className="cards__item__text">{props.description}</span>
+          <div className={cx("cards__item__info")}>
+            <h5 className={cx("cards__item__text")}>{props.title}</h5>
+            <span className={cx("cards__item__text")}>{props.description}</span>
           </div>
         </Link>
       </li>

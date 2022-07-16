@@ -1,52 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardItemProducts from "./CardItemProducts";
-import "./CardProducts.css";
+import classNames from "classnames/bind";
+import styles from "./CardProducts.module.scss";
+import ProductDataService from "../../services/ProductDataService";
+
+const cx = classNames.bind(styles);
 
 function CardProducts() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts();
+  });
+
+  const getProducts = () => {
+    ProductDataService.getAllProducts().then((res) => setProducts(res.data));
+  };
   return (
-    <div className="cards__product__container">
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={"/shop/product-detail/1"}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={"/"}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
-      />
-      <CardItemProducts
-        src={require("../../assets/images/ao-man-1.jpg")}
-        alt="news"
-        price="2500"
-        description="Manchester United Home Shirt 2021-22"
-        path={`/news-detail/${"Opinion: Erik can revitalise returning loan players"}`}
-      />
+    <div className={cx("cards__product__container")}>
+      {products ? (
+        <>
+          {products.map((product) => {
+            return (
+              <CardItemProducts
+                key={product.id}
+                src={require(`../../assets/images/product/${product.image}`)}
+                alt="news"
+                price={product.price}
+                name={product.name}
+                path={`/shop/product-detail/${product.id}`}
+              />
+            );
+          })}
+        </>
+      ) : (
+        "isEmpty"
+      )}
     </div>
   );
 }

@@ -1,0 +1,98 @@
+.shop__name__link{
+    margin-top: 10px;
+    height: 30px;
+    box-shadow: 0 1px 0 rgb(0 0 0 / 12%);
+    font-size: 12px;
+    span{
+        margin: 30px;
+    }
+}
+.shop__show__wrapper{
+    display: flex;
+    
+    .shop__show__category__sidebar{
+        flex: 1;
+        width: 300px;
+        margin: 30px 20px 30px;
+        border-bottom: 1px solid;
+        border-color: rgb(0 0 0 / 12%);
+
+        p{
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 300;
+            cursor: pointer;
+
+            li{
+                &:hover{
+                    background-color:  var(--primary-color);
+                    color: #fff;
+                }
+                span{
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    .shop__show__container{
+        width: 80%;
+        height: 50px;
+
+        .shop__show__count{
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            height: 50px;
+            font-size: 14px;
+            margin-top: 10px;
+            font-size: 12px;
+            .shop__show__count_wrap{
+                margin: 10px;
+                select{
+                    margin-left: 15px;
+                    padding: 7px;   
+                }
+            }
+
+            ul{
+                list-style: none;
+                display: flex;
+            }
+
+            .div__page ul {
+                .active{
+                    background-color: rgb(236, 241, 242);
+                    border-radius: 5px;
+                }
+                li{
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    margin: 10px 0 ;
+                    width: 30px;
+                    height: 30px;
+                    
+                    &:hover{
+                        background-color: rgb(236, 241, 242);
+                        border-radius: 5px;
+                    }
+                    .icon__cross{
+                        margin-left: 12px;
+                    }
+                    a{
+                        text-decoration: none;
+                        margin-left: 12px;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}

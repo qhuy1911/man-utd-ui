@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ArticlesDataService from "../../services/ArticlesDataService";
-import "./Card.css";
+import styles from "./Card.module.scss";
 import CardItem from "./CardItem";
+import classNames from "classnames/bind";
 
+const cx = classNames.bind(styles);
 function Card() {
   const [articles, setArticles] = useState([]);
 
@@ -17,9 +19,9 @@ function Card() {
   };
 
   return (
-    <div className="cards__container">
-      <div className="cards__wrapper">
-        <ul className="cards__items">
+    <div className={cx("cards__container")}>
+      <div className={cx("cards__wrapper")}>
+        <ul className={cx("cards__items")}>
           {articles &&
             articles.map((article) => {
               return (

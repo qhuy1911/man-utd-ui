@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useEffect, useState } from "react";
-import "./NewDetail.css";
 import { useParams } from "react-router-dom";
 import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ArticlesDataService from "../../services/ArticlesDataService";
+import classNames from "classnames/bind";
+import styles from "./NewDetail.module.scss";
+
+const cx = classNames.bind(styles);
 
 function NewDetail() {
   let { id } = useParams();
@@ -31,20 +34,20 @@ function NewDetail() {
             <img src={article.image} alt="" className="image__background"></img>
             <h1>{article.title.toUpperCase()}</h1>
           </div>
-          <div className="new_detail_content_container">
-            <div className="new_detail_content_wrapper">
-              <div className="new_detail_info">
+          <div className={cx("new_detail_content_container")}>
+            <div className={cx("new_detail_content_wrapper")}>
+              <div className={cx("new_detail_info")}>
                 <span>by {article.author.fullName}</span>
                 <span>{new Date(article.updatedAt).toUTCString()}</span>
               </div>
               <div>
-                <ul className="list__icon__info">
-                  <li className="icon__info twittwer__icon">
+                <ul className={cx("list__icon__info")}>
+                  <li className={cx("twittwer__icon")}>
                     <a>
                       <FontAwesomeIcon icon={faTwitter} />
                     </a>
                   </li>
-                  <li className="icon__info facebook__icon">
+                  <li className={cx("facebook__icon")}>
                     <a>
                       <FontAwesomeIcon icon={faFacebookF} />
                     </a>
