@@ -7,11 +7,11 @@ function Card() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    getAllArcles();
+    getAllArticles();
   }, []);
 
-  const getAllArcles = () => {
-    ArticlesDataService.getAllArcles().then((res) => {
+  const getAllArticles = () => {
+    ArticlesDataService.getAllArticles().then((res) => {
       setArticles(res.data);
     });
   };
@@ -25,7 +25,7 @@ function Card() {
               return (
                 <CardItem
                   key={article.id}
-                  src={require(`../../assets/images/${article.image}`)}
+                  src={article.image}
                   alt="news"
                   title={article.title}
                   description={article.description}

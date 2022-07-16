@@ -1,0 +1,9 @@
+.admin-layout__container {
+  padding-top: 100px;
+  display: flex;
+}
+
+.admin-layout__content {
+  padding: 24px 32px 24px 276px;
+  flex: 1
+}
