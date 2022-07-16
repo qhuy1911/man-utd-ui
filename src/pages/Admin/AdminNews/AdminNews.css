@@ -1,0 +1,33 @@
+.admin-news__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-news__btn {
+  display: flex;
+  margin: 4px 0;
+  justify-content: flex-end;
+}
+
+.admin-news__btn-add {
+  width: fit-content;
+  border-radius: 8px;
+}
+
+.add-news__wrapper h1 {
+  margin-bottom: 32px;
+}
+
+.add-news__input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.add-news__input input {
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+}

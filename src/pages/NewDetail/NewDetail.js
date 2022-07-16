@@ -16,17 +16,13 @@ function NewDetail() {
 
   const [article, setArticles] = useState(null);
 
-  const [contents, setContents] = useState();
-
   useEffect(() => {
     getArticle(id);
   }, [id]);
 
   const getArticle = (id) => {
-    ArticlesDataService.getArcle(id).then((res) => {
+    ArticlesDataService.getArticle(id).then((res) => {
       setArticles(res.data);
-      let texts = res.data.content.split(".");
-      setContents(texts);
     });
   };
 
@@ -34,11 +30,8 @@ function NewDetail() {
     <>
       {article ? (
         <div>
-          <div className={cx("new__detail__background_container")}>
-            <img
-              src={require(`../../assets/images/${article.image}`)}
-              alt=""
-            ></img>
+          <div className="new__detail__background_container">
+            <img src={article.image} alt="" className="image__background"></img>
             <h1>{article.title.toUpperCase()}</h1>
           </div>
           <div className={cx("new_detail_content_container")}>
@@ -61,13 +54,14 @@ function NewDetail() {
                   </li>
                 </ul>
               </div>
-              <div className={cx("new_detail_content_text")}>
-                {contents.map((content, index) => (
-                  <p key={index}>{content}</p>
-                ))}
-              </div>
-              <div className={cx("div__back__top")}>
-                <span className={cx("btn__back__top")}>
+              <div
+                className="new_detail_content_text"
+                dangerouslySetInnerHTML={{
+                  __html: article.content,
+                }}
+              ></div>
+              <div className="div__back__top">
+                <span className="icon__info btn__back__top">
                   <span>Back to top</span>
                   <FontAwesomeIcon icon={faArrowUp}></FontAwesomeIcon>
                 </span>

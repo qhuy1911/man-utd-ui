@@ -9,6 +9,8 @@ import AdminHome from "../pages/Admin/AdminHome";
 import AdminLayout from "../components/Layouts/AdminLayout";
 import PlayerDetail from "../pages/User/PlayerDetail";
 import PlayerList from "../pages/User/PlayerList";
+import AdminNews from "../pages/Admin/AdminNews";
+import AddNews from "../pages/Admin/AdminNews/AddNews";
 
 const publicRoutes = [
   { path: "/", component: Home },
@@ -28,6 +30,8 @@ const publicRoutes = [
 
 const privateRoutes = [
   { path: "/admin", component: AdminHome, layout: AdminLayout },
+  { path: "/admin/news", component: AdminNews, layout: AdminLayout },
+  { path: "/admin/news/add", component: AddNews, layout: AdminLayout },
 ];
 
 export { publicRoutes, privateRoutes };
