@@ -11,6 +11,12 @@ import PlayerDetail from "../pages/User/PlayerDetail";
 import PlayerList from "../pages/User/PlayerList";
 import AdminNews from "../pages/Admin/AdminNews";
 import AddNews from "../pages/Admin/AdminNews/AddNews";
+import AdminCategories from "../pages/Admin/AdminCategories";
+import AddCategory from "../pages/Admin/AdminCategories/AddCategory";
+import Category from "../pages/Admin/AdminCategories/Category";
+import AdminProducts from "../pages/Admin/AdminProducts";
+import AddProduct from "../pages/Admin/AdminProducts/AddProduct";
+import Product from "../pages/Admin/AdminProducts/Product";
 
 const publicRoutes = [
   { path: "/", component: Home },
@@ -32,6 +38,32 @@ const privateRoutes = [
   { path: "/admin", component: AdminHome, layout: AdminLayout },
   { path: "/admin/news", component: AdminNews, layout: AdminLayout },
   { path: "/admin/news/add", component: AddNews, layout: AdminLayout },
+  {
+    path: "/admin/categories",
+    component: AdminCategories,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/categories/add",
+    component: AddCategory,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/categories/:id",
+    component: Category,
+    layout: AdminLayout,
+  },
+  { path: "/admin/products", component: AdminProducts, layout: AdminLayout },
+  {
+    path: "/admin/products/add",
+    component: AddProduct,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/products/:id",
+    component: Product,
+    layout: AdminLayout,
+  },
 ];
 
 export { publicRoutes, privateRoutes };
