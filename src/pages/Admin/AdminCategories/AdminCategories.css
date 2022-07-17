@@ -1,19 +1,20 @@
-.admin-news__wrapper {
+.admin-categories__wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.admin-news__btn {
+.admin-categories__btn {
   display: flex;
   margin: 4px 0;
   justify-content: flex-end;
 }
 
-.admin-news__btn-add {
+.admin-categories__btn-add {
   width: fit-content;
   border-radius: 8px;
 }
 
-.add-news__wrapper h1 {
-  margin-bottom: 32px;
+.category__btn {
+  display: flex;
+  gap: 32px;
 }

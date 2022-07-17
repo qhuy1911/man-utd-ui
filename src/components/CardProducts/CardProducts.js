@@ -24,7 +24,7 @@ function CardProducts() {
             return (
               <CardItemProducts
                 key={product.id}
-                src={require(`../../assets/images/product/${product.image}`)}
+                src={product.image}
                 alt="news"
                 price={product.price}
                 name={product.name}

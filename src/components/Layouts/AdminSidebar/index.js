@@ -11,13 +11,13 @@ function AdminSidebar() {
           </Link>
         </li>
         <li className="admin-sidebar__item">
-          <Link className="admin-sidebar__item-link" to={"/admin/news"}>
-            News
+          <Link className="admin-sidebar__item-link" to={"/admin/categories"}>
+            Categories
           </Link>
         </li>
         <li className="admin-sidebar__item">
-          <Link className="admin-sidebar__item-link" to={"/admin/news"}>
-            News
+          <Link className="admin-sidebar__item-link" to={"/admin/products"}>
+            Products
           </Link>
         </li>
         <li className="admin-sidebar__item">

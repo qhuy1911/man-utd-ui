@@ -1,3 +1,5 @@
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ArticlesDataService from "../../../services/ArticlesDataService";
@@ -32,18 +34,19 @@ function AdminNews() {
               <th>#</th>
               <th>Title</th>
               <th>Description</th>
-              <th>Created At</th>
             </tr>
           </thead>
           <tbody>
             {articles.map((article, index) => (
               <tr key={article.id}>
                 <td>{index + 1}</td>
-                <td>
-                  <Link to={`/admin/news/${article.id}`}>{article.title}</Link>
-                </td>
+                <td>{article.title}</td>
                 <td>{article.description}</td>
-                <td>{article.createdAt}</td>
+                <td className="table__action">
+                  <Link to={`${article.id}`} className="table__action-link">
+                    <FontAwesomeIcon icon={faPen} />
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>

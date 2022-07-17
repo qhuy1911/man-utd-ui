@@ -30,8 +30,8 @@ function NewDetail() {
     <>
       {article ? (
         <div>
-          <div className="new__detail__background_container">
-            <img src={article.image} alt="" className="image__background"></img>
+          <div className={cx("new__detail__background_container")}>
+            <img src={article.image} alt="article" />
             <h1>{article.title.toUpperCase()}</h1>
           </div>
           <div className={cx("new_detail_content_container")}>
@@ -54,14 +54,17 @@ function NewDetail() {
                   </li>
                 </ul>
               </div>
+              <div className={cx("news-detail__desc")}>
+                {article.description}
+              </div>
               <div
-                className="new_detail_content_text"
+                className={cx("new_detail_content_text")}
                 dangerouslySetInnerHTML={{
                   __html: article.content,
                 }}
               ></div>
-              <div className="div__back__top">
-                <span className="icon__info btn__back__top">
+              <div className={cx("div__back__top")}>
+                <span className={cx("icon__info btn__back__top")}>
                   <span>Back to top</span>
                   <FontAwesomeIcon icon={faArrowUp}></FontAwesomeIcon>
                 </span>
