@@ -17,6 +17,9 @@ import Category from "../pages/Admin/AdminCategories/Category";
 import AdminProducts from "../pages/Admin/AdminProducts";
 import AddProduct from "../pages/Admin/AdminProducts/AddProduct";
 import Product from "../pages/Admin/AdminProducts/Product";
+import AdminSize from "../pages/Admin/AdminSize";
+import AddSize from "../pages/Admin/AdminSize/AddSize";
+import Size from "../pages/Admin/AdminSize/Size";
 
 const publicRoutes = [
   { path: "/", component: Home },
@@ -62,6 +65,21 @@ const privateRoutes = [
   {
     path: "/admin/products/:id",
     component: Product,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/sizes",
+    component: AdminSize,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/sizes/add",
+    component: AddSize,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/sizes/:id",
+    component: Size,
     layout: AdminLayout,
   },
 ];

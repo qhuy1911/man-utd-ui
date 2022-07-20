@@ -21,8 +21,8 @@ function AdminSidebar() {
           </Link>
         </li>
         <li className="admin-sidebar__item">
-          <Link className="admin-sidebar__item-link" to={"/admin/news"}>
-            News
+          <Link className="admin-sidebar__item-link" to={"/admin/sizes"}>
+            Sizes
           </Link>
         </li>
       </ul>

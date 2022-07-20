@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 // import { useState } from "react";
@@ -5,6 +6,7 @@ import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductDataService from "../../services/ProductDataService";
+import SizeDataService from "../../services/SizeDataService";
 import styles from "./ProductDetail.module.scss";
 
 const cx = classNames.bind(styles);
@@ -12,21 +14,30 @@ function ProductDetail() {
   let { id } = useParams();
   const [product, setProduct] = useState();
   const [details, setDetails] = useState();
+  const [sizes, setSizes] = useState();
 
   useEffect(() => {
     getArticle(id);
+    getAllSizesOfProduct();
   }, [id]);
+
+  const getAllSizesOfProduct = () => {
+    SizeDataService.getAllSizesByProductId(id).then((res) => {
+      setSizes(res.data);
+      console.log(res.data);
+    });
+  };
 
   const getArticle = (id) => {
     ProductDataService.getProduct(id).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setProduct(res.data);
       let texts = res.data.description.split(".");
       setDetails(texts);
     });
   };
 
-  const sizes = ["XL", "XXL", "3XL", "4XL"];
+  // const sizes = ["XL", "XXL", "3XL", "4XL"];
   const counts = [];
   // const [show, setShow] = useState(false);
   for (let index = 1; index < 10; index++) {
@@ -43,10 +54,7 @@ function ProductDetail() {
             <span>MANCHESTER UNITED</span>
           </div>
           <div className={cx("div__wrapp")}>
-            <img
-              src={require(`../../assets/images/product/${product.image}`)}
-              alt=""
-            ></img>
+            <img src={product.image} alt=""></img>
             <div className={cx("product__detail__infor__warrper")}>
               <span className={cx("product__detail__title")}>
                 {product.name}
@@ -62,15 +70,17 @@ function ProductDetail() {
                   <span>Size</span>
                   <span className={cx("div__chart")}>SIZE CHART</span>
                 </div>
-                <div className={cx("product__detail__cate__size")}>
-                  <ul>
-                    {sizes.map((size, index) => (
-                      <li key={size}>
-                        <span>{size}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {sizes && (
+                  <div className={cx("product__detail__cate__size")}>
+                    <ul>
+                      {sizes.map((size) => (
+                        <li key={size.id}>
+                          <span>{size.name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 <div className={cx("product__detail__select__container")}>
                   <div className={cx("div__contain__quanlity")}>
                     <span>Quantity</span>
@@ -108,8 +118,8 @@ function ProductDetail() {
                 <h3>Detail</h3>
                 <ul>
                   {details.map((detail, index) => (
-                    <li>
-                      <p key={index}>{detail}</p>
+                    <li key={index}>
+                      <p>{detail}</p>
                     </li>
                   ))}
                 </ul>
