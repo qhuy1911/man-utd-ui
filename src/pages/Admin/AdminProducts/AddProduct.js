@@ -101,8 +101,8 @@ function AddProduct() {
 
       {categories && (
         <div className="man-form__input">
-          <label htmlFor="add-product__input-price">Category</label>
-          <select id="add-product__input-price" onChange={onChangeCategory}>
+          <label htmlFor="add-product__input-category">Category</label>
+          <select id="add-product__input-category" onChange={onChangeCategory}>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
