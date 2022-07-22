@@ -20,12 +20,21 @@ const deleteProduct = (id) => {
   return http.delete(`/v1/products/${id}`);
 };
 
+const getProductByCategory = (id) => {
+  return http.get(`/v1/categories/${id}/products`);
+};
+
+// const getProductOrderbyPrice = () => {
+//   return http.get("v1/products/lowest");
+// };
 const ProductDataService = {
   getAllProducts,
   getProduct,
   addProduct,
   updateProduct,
   deleteProduct,
+  getProductByCategory,
+  // getProductOrderbyPrice,
 };
 
 export default ProductDataService;

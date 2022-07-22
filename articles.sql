@@ -13,11 +13,7 @@ The outdoor session on Thursday was intense and enjoyable for all involved, mixi
 See who is pictured in the latest training session via the gallery below…"
 ,"2022-07-01",
 "Erik is assessing each and every player with an open mind, as he gets to know the group at Carrington.",
-<<<<<<< HEAD:dataUimand.sql
-"img-4",
-=======
 "img-4.jpg",
->>>>>>> 8f09057200d77319f6c01843a9d4fd91b15977e1:articles.sql
 "Ten Hag continues to work his United squad","2022-07-01",1);
 
 insert into articles 

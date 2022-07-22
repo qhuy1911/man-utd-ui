@@ -4,7 +4,7 @@
 // import { useState } from "react";
 import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProductDataService from "../../services/ProductDataService";
 import SizeDataService from "../../services/SizeDataService";
 import styles from "./ProductDetail.module.scss";
@@ -96,9 +96,9 @@ function ProductDetail() {
                     <button className={cx("btn__action__cus")}>
                       Customise
                     </button>
-                    <button className={cx("btn__action__add")}>
-                      Add to card
-                    </button>
+                    <Link to={"/shop/cart"} className={cx("btn__action__add")}>
+                      <span> Add to card</span>
+                    </Link>
                   </div>
                 </div>
               </div>

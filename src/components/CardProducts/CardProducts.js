@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from "react";
 import CardItemProducts from "./CardItemProducts";
 import classNames from "classnames/bind";
 import styles from "./CardProducts.module.scss";
-import ProductDataService from "../../services/ProductDataService";
 
 const cx = classNames.bind(styles);
 
-function CardProducts() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    getProducts();
-  });
-
-  const getProducts = () => {
-    ProductDataService.getAllProducts().then((res) => setProducts(res.data));
-  };
+function CardProducts({ dataProduct }) {
   return (
     <div className={cx("cards__product__container")}>
-      {products ? (
+      {dataProduct ? (
         <>
-          {products.map((product) => {
+          {dataProduct.map((product) => {
             return (
               <CardItemProducts
                 key={product.id}
