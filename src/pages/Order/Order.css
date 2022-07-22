@@ -1,0 +1,28 @@
+.shop-order__wrap{
+    display: flex;
+    justify-content: center;
+}
+.shop-order__wrap .order__title{
+    margin-top: 20px;
+    font-weight: 400;
+}
+.shop-order__table{
+    margin-top: 30px;
+    width: 1020px;
+}
+.shop_order_link{
+    text-decoration: none;
+}
+.shop_order_link:hover{
+    text-decoration: underline;
+}
+.shop-order__div_total{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border-top: 1px solid;
+    border-color: rgb(190, 189, 187);
+}
+.shop-order__div_total .shop-order_total{
+    margin:20px 70px 0 0;
+}

@@ -20,12 +20,21 @@ import Product from "../pages/Admin/AdminProducts/Product";
 import AdminSize from "../pages/Admin/AdminSize";
 import AddSize from "../pages/Admin/AdminSize/AddSize";
 import Size from "../pages/Admin/AdminSize/Size";
+import ShopLayout from "../components/Layouts/ShopLayout";
+import Cart from "../pages/Cart";
+import Checkout from "../pages/Checkout";
+import Order from "../pages/Order";
+import OrderDetail from "../pages/Order/OrderDetail";
 
 const publicRoutes = [
   { path: "/", component: Home },
   { path: "/news-detail/:id", component: NewDetail },
-  { path: "/shop", component: Shop, layout: null },
-  { path: "/shop/product-detail/:id", component: ProductDetail, layout: null },
+  { path: "/shop", component: Shop, layout: ShopLayout },
+  { path: "/shop/product-detail/:id", component: ProductDetail, layout: ShopLayout },
+  { path: "/shop/cart", component: Cart, layout: ShopLayout},
+  { path: "/shop/checkout", component: Checkout, layout: ShopLayout},
+  { path: "/shop/order", component: Order, layout: ShopLayout},
+  { path: "/shop/order-detail", component: OrderDetail, layout:ShopLayout},
 
   //players
 
