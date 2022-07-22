@@ -1,10 +1,12 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 // import { useState } from "react";
 import classNames from "classnames/bind";
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import CartContext from "../../context/CartContext";
 import ProductDataService from "../../services/ProductDataService";
 import SizeDataService from "../../services/SizeDataService";
 import styles from "./ProductDetail.module.scss";
@@ -15,6 +17,7 @@ function ProductDetail() {
   const [product, setProduct] = useState();
   const [details, setDetails] = useState();
   const [sizes, setSizes] = useState();
+  const { cart, setCart } = useContext(CartContext);
 
   useEffect(() => {
     getArticle(id);
@@ -35,6 +38,20 @@ function ProductDetail() {
       let texts = res.data.description.split(".");
       setDetails(texts);
     });
+  };
+
+  const addToCart = () => {
+    const index = cart.findIndex((item) => item.product.id === product.id);
+    if (index > -1) {
+      cart.map((item) => {
+        if (item.product.id === product.id) {
+          return item.quantity++;
+        }
+      });
+      setCart([...cart]);
+    } else {
+      setCart([...cart, { product, quantity: 1 }]);
+    }
   };
 
   // const sizes = ["XL", "XXL", "3XL", "4XL"];
@@ -93,12 +110,15 @@ function ProductDetail() {
                     </select>
                   </div>
                   <div className={cx("btn__action__container")}>
-                    <button className={cx("btn__action__cus")}>
+                    {/* <button className={cx("btn__action__cus")}>
                       Customise
+                    </button> */}
+                    <button
+                      onClick={addToCart}
+                      className={cx("btn__action__add")}
+                    >
+                      Add to card
                     </button>
-                    <Link to={"/shop/cart"} className={cx("btn__action__add")}>
-                      <span> Add to card</span>
-                    </Link>
                   </div>
                 </div>
               </div>
