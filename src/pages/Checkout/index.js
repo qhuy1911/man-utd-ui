@@ -1,8 +1,12 @@
 /* eslint-disable no-useless-escape */
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./Shipping.css";
+import CartContext from "../../context/CartContext";
+import AuthService from "../../services/AuthService";
+import OrderService from "../../services/OrderService";
+import OrderDetailService from "../../services/OrderDetailService";
 
 function Checkout() {
   const {
@@ -11,12 +15,31 @@ function Checkout() {
     formState: { errors },
   } = useForm();
   const handleForm = (data) => {};
+  const { cart, setCart, getTotal } = useContext(CartContext);
+  const currentUser = AuthService.getCurrentUser();
+
+  const handleCheckout = () => {
+    let total = getTotal();
+    console.log(total);
+    OrderService.createOrder(currentUser.id, { total }).then((res) => {
+      let orderId = res.data.id;
+
+      cart.forEach((item) => {
+        OrderDetailService.createOrderDetail(orderId, item.size.id, {
+          quantity: item.quantity,
+        });
+      });
+
+      setCart([]);
+    });
+    // console.log(currentUser);
+  };
   return (
     <div className="checkout__wrapper">
       <div className="checkout__container">
         <div className="checkout__title__content">
           <span>Secure Checkout</span>
-          <span>Cart: US$12000</span>
+          <span>Cart: US${getTotal()}</span>
         </div>
         <div className="checkout__info__login">
           <span>Already have an account?</span>
@@ -129,7 +152,9 @@ function Checkout() {
             <div className="checkout__input">
               <textarea className="form-control" placeholder="Note" />
             </div>
-            <input className="chekout__submit" type="submit" value="Submit" />
+            <button className="chekout__submit" onClick={handleCheckout}>
+              Submit
+            </button>
           </form>
         </div>
       </div>

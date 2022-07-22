@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Cart.css";
@@ -7,10 +8,11 @@ import CardItem from "../../components/CardItemCart";
 import CartContext from "../../context/CartContext";
 
 function Cart() {
+  let navigate = useNavigate();
   const { cart, getTotal } = useContext(CartContext);
 
   const handleCheckout = () => {
-    console.log("checkout");
+    navigate("/shop/checkout");
   };
 
   return (

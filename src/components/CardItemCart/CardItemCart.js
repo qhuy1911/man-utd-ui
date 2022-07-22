@@ -8,7 +8,10 @@ function CardItemCart({ data }) {
 
   const increase = () => {
     cart.map((item) => {
-      if (item.product.id === data.product.id) {
+      if (
+        item.product.id === data.product.id &&
+        item.size.id === data.size.id
+      ) {
         return item.quantity++;
       }
     });
@@ -17,7 +20,10 @@ function CardItemCart({ data }) {
 
   const decrease = () => {
     cart.map((item) => {
-      if (item.product.id === data.product.id) {
+      if (
+        item.product.id === data.product.id &&
+        item.size.id === data.size.id
+      ) {
         if (item.quantity > 1) return item.quantity--;
       }
     });
@@ -26,7 +32,10 @@ function CardItemCart({ data }) {
 
   const removeCart = () => {
     cart.splice(
-      cart.findIndex((item) => item.product.id === data.product.id),
+      cart.findIndex(
+        (item) =>
+          item.product.id === data.product.id && item.size.id === data.size.id
+      ),
       1
     );
     setCart([...cart]);
@@ -49,6 +58,7 @@ function CardItemCart({ data }) {
               <h3>{data.quantity}</h3>
               <button onClick={increase}>+</button>
             </div>
+            Size: {data.size.name}
           </div>
           <span className="cart-item-cart__info_note">
             This item usually ships within one business day. Please allow an
