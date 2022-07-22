@@ -24,9 +24,16 @@ const getProductByCategory = (id) => {
   return http.get(`/v1/categories/${id}/products`);
 };
 
-// const getProductOrderbyPrice = () => {
-//   return http.get("v1/products/lowest");
-// };
+// giam dan
+const getAllProductsOrderByPriceDesc = () => {
+  return http.get("/v1/products/priceDesc");
+};
+
+// tang dan
+const getAllProductsOrderByPriceAsc = () => {
+  return http.get("/v1/products/priceAsc");
+};
+
 const ProductDataService = {
   getAllProducts,
   getProduct,
@@ -34,7 +41,8 @@ const ProductDataService = {
   updateProduct,
   deleteProduct,
   getProductByCategory,
-  // getProductOrderbyPrice,
+  getAllProductsOrderByPriceDesc,
+  getAllProductsOrderByPriceAsc,
 };
 
 export default ProductDataService;

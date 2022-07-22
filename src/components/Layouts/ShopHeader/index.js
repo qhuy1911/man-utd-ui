@@ -5,8 +5,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ShopHeader.css";
+import { useContext } from "react";
+import CartContext from "../../../context/CartContext";
 
 function ShopHeader() {
+  const { cart } = useContext(CartContext);
   return (
     <div>
       <div className="shop-header__menu">
@@ -27,7 +30,7 @@ function ShopHeader() {
               icon={faCartShopping}
               className="shop-header__icon_cart"
             ></FontAwesomeIcon>
-            <span className="shop-header__icon_cart_count">0</span>
+            <span className="shop-header__icon_cart_count">{cart.length}</span>
           </Link>
         </div>
       </div>
