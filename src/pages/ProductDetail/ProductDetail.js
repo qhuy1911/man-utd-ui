@@ -17,6 +17,7 @@ function ProductDetail() {
   const [product, setProduct] = useState();
   const [details, setDetails] = useState();
   const [sizes, setSizes] = useState();
+  const [selectedSize, setSelectedSize] = useState();
   const { cart, setCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ function ProductDetail() {
   const getAllSizesOfProduct = () => {
     SizeDataService.getAllSizesByProductId(id).then((res) => {
       setSizes(res.data);
-      console.log(res.data);
+      setSelectedSize(res.data[0]);
     });
   };
 
@@ -41,17 +42,28 @@ function ProductDetail() {
   };
 
   const addToCart = () => {
-    const index = cart.findIndex((item) => item.product.id === product.id);
+    const index = cart.findIndex(
+      (item) =>
+        item.product.id === product.id && item.size.id === selectedSize.id
+    );
     if (index > -1) {
       cart.map((item) => {
-        if (item.product.id === product.id) {
+        if (
+          item.product.id === product.id &&
+          item.size.id === selectedSize.id
+        ) {
           return item.quantity++;
         }
       });
       setCart([...cart]);
     } else {
-      setCart([...cart, { product, quantity: 1 }]);
+      setCart([...cart, { product, quantity: 1, size: selectedSize }]);
     }
+  };
+
+  const handleSelectSize = (sizeId) => {
+    let index = sizes.findIndex((size) => size.id === sizeId);
+    setSelectedSize(sizes[index]);
   };
 
   // const sizes = ["XL", "XXL", "3XL", "4XL"];
@@ -89,13 +101,17 @@ function ProductDetail() {
                 </div>
                 {sizes && (
                   <div className={cx("product__detail__cate__size")}>
-                    <ul>
-                      {sizes.map((size) => (
-                        <li key={size.id}>
-                          <span>{size.name}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {sizes.map((size) => (
+                      <button
+                        key={size.id}
+                        onClick={() => handleSelectSize(size.id)}
+                        className={
+                          selectedSize.id === size.id ? cx("size__active") : ""
+                        }
+                      >
+                        {size.name}
+                      </button>
+                    ))}
                   </div>
                 )}
                 <div className={cx("product__detail__select__container")}>
