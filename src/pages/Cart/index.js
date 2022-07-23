@@ -1,32 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Cart.css";
 import CardItem from "../../components/CardItemCart";
+import CartContext from "../../context/CartContext";
 
 function Cart() {
+  let navigate = useNavigate();
+  const { cart, getTotal } = useContext(CartContext);
+
+  const handleCheckout = () => {
+    navigate("/shop/checkout");
+  };
+
   return (
     <div className="cart-item__wrap">
       <div className="cart-item__div_left">
         <span>Your Items</span>
-        <CardItem />
+        {cart.map((item, index) => (
+          <CardItem key={index} data={item} />
+        ))}
       </div>
       <div className="cart-item__div_right">
         <div className="cart-item__div_box_total">
           <div className="cart-item__div_total">
             <span>Cart Total</span>
-            <span>US $12000</span>
+            <span>US ${getTotal()}</span>
           </div>
-          <div className="cart-item__div_btn">
-            <Link to={"/shop/checkout"} className="cart-item__btn-checkout">
+          <button
+            className="cart-item__btn-checkout"
+            disabled={cart.length !== 0 ? "" : "disabled"}
+            onClick={handleCheckout}
+          >
+            {cart.length !== 0 || (
               <FontAwesomeIcon
                 icon={faLock}
                 className="cart-item__icon_check"
               />
-              Checkout
-            </Link>
-          </div>
+            )}
+            Checkout
+          </button>
         </div>
         <Link to="/shop" className="cart-item__title_continue">
           CONTINUE SHOPPING
