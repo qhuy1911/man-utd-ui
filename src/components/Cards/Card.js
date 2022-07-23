@@ -1,23 +1,10 @@
-import React, { useEffect, useState } from "react";
-import ArticlesDataService from "../../services/ArticlesDataService";
+import React from "react";
 import styles from "./Card.module.scss";
 import CardItem from "./CardItem";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
-function Card() {
-  const [articles, setArticles] = useState([]);
-
-  useEffect(() => {
-    getAllArticles();
-  }, []);
-
-  const getAllArticles = () => {
-    ArticlesDataService.getAllArticles().then((res) => {
-      setArticles(res.data);
-    });
-  };
-
+function Card({ articles }) {
   return (
     <div className={cx("cards__container")}>
       <div className={cx("cards__wrapper")}>

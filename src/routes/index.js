@@ -25,6 +25,9 @@ import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import Order from "../pages/Order";
 import OrderDetail from "../pages/Order/OrderDetail";
+import AdminOrders from "../pages/Admin/AdminOrders";
+import AdminOrderDetail from "../pages/Admin/AdminOrders/AdminOrderDetail";
+import Thanks from "../pages/Checkout/Thanks";
 
 const publicRoutes = [
   { path: "/", component: Home },
@@ -34,7 +37,8 @@ const publicRoutes = [
   { path: "/shop/cart", component: Cart, layout: ShopLayout},
   { path: "/shop/checkout", component: Checkout, layout: ShopLayout},
   { path: "/shop/order", component: Order, layout: ShopLayout},
-  { path: "/shop/order-detail", component: OrderDetail, layout:ShopLayout},
+  { path: "/shop/order-detail/:id", component: OrderDetail, layout:ShopLayout},
+  { path: "/shop/checkout/success", component: Thanks, layout:ShopLayout},
 
   //players
 
@@ -91,6 +95,8 @@ const privateRoutes = [
     component: Size,
     layout: AdminLayout,
   },
+  { path: "/admin/orders", component: AdminOrders, layout: AdminLayout},
+  { path: "/admin/order-detail/:id", component: AdminOrderDetail, layout: AdminLayout}
 ];
 
 export { publicRoutes, privateRoutes };

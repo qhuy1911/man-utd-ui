@@ -1,0 +1,10 @@
+.admin__order__table{
+    margin-top: 60px;
+    margin-right: 30px;
+}
+.status_active{
+    cursor: pointer;
+}
+.update__status{
+    cursor: pointer;
+}

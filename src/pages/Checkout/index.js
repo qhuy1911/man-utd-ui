@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./Shipping.css";
 import CartContext from "../../context/CartContext";
@@ -17,6 +17,7 @@ function Checkout() {
   const handleForm = (data) => {};
   const { cart, setCart, getTotal } = useContext(CartContext);
   const currentUser = AuthService.getCurrentUser();
+  let navigate = useNavigate();
 
   const handleCheckout = () => {
     let total = getTotal();
@@ -29,7 +30,7 @@ function Checkout() {
           quantity: item.quantity,
         });
       });
-
+      navigate("/shop/checkout/success");
       setCart([]);
     });
     // console.log(currentUser);

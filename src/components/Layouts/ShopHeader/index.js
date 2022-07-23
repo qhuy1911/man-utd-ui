@@ -7,31 +7,40 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ShopHeader.css";
 import { useContext } from "react";
 import CartContext from "../../../context/CartContext";
+import AuthService from "../../../services/AuthService";
 
 function ShopHeader() {
   const { cart } = useContext(CartContext);
+  const getUser = AuthService.getCurrentUser();
   return (
     <div>
       <div className="shop-header__menu">
-        <div className="shop-header__menu_list">
-          <Link to={"/"} className="shop-header__link">
-            Page News
-          </Link>
-          <Link to={"/shop/order"} className="shop-header__link">
-            Track Order
-          </Link>
-          <Link to="" className="shop-header__link">
-            My Account
-          </Link>
-        </div>
-        <div className="shop-header_div_cart">
-          <Link to="/shop/cart" className="shop-header__link">
-            <FontAwesomeIcon
-              icon={faCartShopping}
-              className="shop-header__icon_cart"
-            ></FontAwesomeIcon>
-            <span className="shop-header__icon_cart_count">{cart.length}</span>
-          </Link>
+        <span className="shop-header__name_user">
+          {getUser ? `Welcome: ${getUser.fullName}!` : ""}
+        </span>
+        <div className="shop-header__menu_container">
+          <div className="shop-header__menu_list">
+            <Link to={"/"} className="shop-header__link">
+              Page News
+            </Link>
+            <Link to={"/shop/order"} className="shop-header__link">
+              Track Order
+            </Link>
+            <Link to="" className="shop-header__link">
+              My Account
+            </Link>
+          </div>
+          <div className="shop-header_div_cart">
+            <Link to="/shop/cart" className="shop-header__link">
+              <FontAwesomeIcon
+                icon={faCartShopping}
+                className="shop-header__icon_cart"
+              ></FontAwesomeIcon>
+              <span className="shop-header__icon_cart_count">
+                {cart.length}
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="shop-header__container">

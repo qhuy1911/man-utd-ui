@@ -60,12 +60,20 @@ function Shop() {
     });
   };
 
-  // const handleSortProduct = (value) => {
-  //   console.log(value);
-  //   ProductDataService.getProductOrderbyPrice().then((res) =>
-  //     setProducts(res.data)
-  //   );
-  // };
+  const handleSortProduct = (value) => {
+    console.log(value);
+    if (value === "desc") {
+      ProductDataService.getAllProductsOrderByPriceDesc().then((res) =>
+        setProducts(res.data)
+      );
+    } else if (value === "asc") {
+      ProductDataService.getAllProductsOrderByPriceAsc().then((res) =>
+        setProducts(res.data)
+      );
+    } else {
+      getProducts();
+    }
+  };
   return (
     <>
       <div className={cx("shop__name__link")}>
@@ -92,9 +100,13 @@ function Shop() {
           <div className={cx("shop__show__count")}>
             <div className={cx("shop__show__count_wrap")}>
               <span>1 - 9 of {products.length}</span>
-              <select className={cx("select")}>
+              <select
+                className={cx("select")}
+                onChange={(e) => handleSortProduct(e.target.value)}
+              >
                 <option value="default">Top Sellers</option>
-                <option value="desc">Lowest Price</option>
+                <option value="asc">Lowest Price</option>
+                <option value="desc">Highest Price</option>
               </select>
             </div>
             <div className={cx("div__page")}>
