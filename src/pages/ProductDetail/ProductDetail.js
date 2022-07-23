@@ -21,7 +21,7 @@ function ProductDetail() {
   const { cart, setCart } = useContext(CartContext);
 
   useEffect(() => {
-    getArticle(id);
+    getProduct(id);
     getAllSizesOfProduct();
   }, [id]);
 
@@ -32,7 +32,7 @@ function ProductDetail() {
     });
   };
 
-  const getArticle = (id) => {
+  const getProduct = (id) => {
     ProductDataService.getProduct(id).then((res) => {
       // console.log(res.data);
       setProduct(res.data);

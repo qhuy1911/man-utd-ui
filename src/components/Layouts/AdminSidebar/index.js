@@ -25,6 +25,11 @@ function AdminSidebar() {
             Sizes
           </Link>
         </li>
+        <li className="admin-sidebar__item">
+          <Link className="admin-sidebar__item-link" to={"/admin/orders"}>
+            Orders
+          </Link>
+        </li>
       </ul>
     </div>
   );

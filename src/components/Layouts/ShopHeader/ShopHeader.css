@@ -2,7 +2,16 @@
     width: 100%;
     height: 40px;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    align-items: center;
+}
+.shop-header__menu_container{
+    display: flex;
+}
+.shop-header__name_user{
+    margin-left: 50px;
+    color: brown;
+    font-size: 14px;
 }
 .shop-header__menu_list{
     padding: 5px;
