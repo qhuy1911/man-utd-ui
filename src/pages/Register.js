@@ -23,7 +23,7 @@ function Register() {
   }, [navigate]);
 
   const handleRegister = (data) => {
-    console.log(data);
+    // console.log(data);
     setMessage("");
     setSuccessful(false);
     const user = {

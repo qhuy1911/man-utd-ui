@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import OrderDetailService from "../../../services/OrderDetailService";
@@ -69,7 +70,7 @@ function AdminOrderDetail() {
       </table>
       <div className="shop-order__div_total">
         <span></span>
-        <span className="shop-order_total">Total: US {order.total}</span>
+        <span className="shop-order_total">Total: US ${order.total}</span>
       </div>
     </div>
   );

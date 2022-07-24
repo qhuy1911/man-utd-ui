@@ -9,12 +9,29 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
+import AuthService from "../../../services/AuthService";
+import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
 
 function Footer() {
+  const [currentUser, setCurrentUser] = useState();
+
+  const getCurrentUser = () => {
+    setCurrentUser(AuthService.getCurrentUser());
+  };
+
+  useEffect(() => {
+    getCurrentUser();
+  }, []);
+
+  const onLogout = () => {
+    AuthService.logout();
+    getCurrentUser();
+  };
+
   return (
     <footer className={cx("wrapper")}>
       {/* Social */}
@@ -52,14 +69,31 @@ function Footer() {
             </a>
           </li>
         </ul>
-        {/* <div className={cx("social-buttons")}>
-          <Link className={cx("btn-link", "black-btn")} to={"/login"}>
-            Login
-          </Link>
-          <Link className={cx("btn-link", "red-btn")} to={"/signup"}>
-            Sign up
-          </Link>
-        </div> */}
+        {currentUser ? (
+          <div>
+            <button
+              className={cx("btn-link", "btn-link-signup", "red-btn")}
+              onClick={onLogout}
+            >
+              Log out
+            </button>
+          </div>
+        ) : (
+          <div className={cx("social-buttons")}>
+            <Link
+              className={cx("btn-link", "btn-link-login", "black-btn")}
+              to={"/login"}
+            >
+              Login
+            </Link>
+            <Link
+              className={cx("btn-link", "btn-link-signup", "red-btn")}
+              to={"/register"}
+            >
+              Sign up
+            </Link>
+          </div>
+        )}
       </div>
       {/* Infomation */}
       <div className={cx("infomations")}>

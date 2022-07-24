@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./AdminHeader.css";
+import AuthService from "../../../services/AuthService";
 
 function AdminHeader() {
+  let navigate = useNavigate();
   const [showInfo, setShowInfo] = useState(false);
+
+  const onLogout = () => {
+    AuthService.logout();
+    navigate("/");
+  };
 
   return (
     <div className="admin-header__wrapper">
@@ -37,7 +44,7 @@ function AdminHeader() {
               <div>My Profile</div>
             </div>
             <div className="admin-header__user-logout">
-              <div>Logout</div>
+              <div onClick={onLogout}>Logout</div>
             </div>
           </div>
         )}

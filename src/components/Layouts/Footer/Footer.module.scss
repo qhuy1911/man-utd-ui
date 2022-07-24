@@ -45,11 +45,11 @@
   font-size: 2rem;
 }
 
-// .social-buttons {
-//   display: flex;
-//   gap: 8px;
-//   justify-content: center;
-// }
+.social-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
 
 // .black-btn,
 // .red-btn {
@@ -78,15 +78,26 @@
 //   }
 // }
 
-// .btn-link {
-//   color: #fff;
-//   text-decoration: none;
-//   font-size: 1.4rem;
-//   font-weight: 500;
-//   text-transform: uppercase;
-//   padding: 13px 32px;
-//   height: 100%;
-// }
+.btn-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 13px 32px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.btn-link-login {
+  border-radius: 46px;
+  border: 1px solid gray;
+}
+
+.btn-link-signup {
+  border-radius: 46px;
+  border: 1px solid transparent;
+}
 
 .infomations {
   height: 44px;
