@@ -38,7 +38,7 @@ function NewDetail() {
             <div className={cx("new_detail_content_wrapper")}>
               <div className={cx("new_detail_info")}>
                 <span>by {article.author.fullName}</span>
-                <span>{new Date(article.updatedAt).toUTCString()}</span>
+                <span>{new Date(article.updatedAt).toDateString()}</span>
               </div>
               <div>
                 <ul className={cx("list__icon__info")}>
