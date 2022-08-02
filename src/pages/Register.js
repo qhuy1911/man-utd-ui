@@ -107,7 +107,7 @@ function Register() {
             <div className="login-input">
               <label htmlFor="">Password</label>
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 {...register("password", {
                   required: "Password is required",
@@ -179,7 +179,9 @@ function Register() {
           </form>
         </div>
       ) : (
-        <div>Register successful</div>
+        <div>
+          Register successful<Link to={"/login"}> Login now! </Link>
+        </div>
       )}
     </div>
   );
